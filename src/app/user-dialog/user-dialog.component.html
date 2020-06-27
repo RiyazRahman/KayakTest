@@ -1,0 +1,33 @@
+<mat-dialog-content class="mat-typography">
+<div cdkDropListGroup>
+    <div class="example-container">
+      <h2>Colomns</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="data"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of data" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+  
+    <div class="example-container">
+      <h2>Selected Colomns</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="selectedColomns"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of selectedColomns" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="submit-btn">
+    <div class="alert alert-danger" role="alert" *ngIf="emptySelectedError">
+        Selected Colmns Should not be empty!!
+      </div>
+  <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+</div>
+</mat-dialog-content>
